@@ -124,11 +124,11 @@ export default class InputKey extends React.PureComponent<iProps, iState> {
             "ctrl": this.state.ctrl,
             "shift": this.state.shift,
             "command": this.state.command
-        }).catch((error) => {
+        }).catch((error: Error): void => {
 
             this.props.onError(error);
 
-        }).finally(() => {
+        }).finally((): void => {
 
             this.setState({
                 "running": false

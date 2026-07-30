@@ -91,11 +91,11 @@ export default class InputString extends React.PureComponent<iProps, iState> {
         this._sdk.inputString({
             "string": this.state.string,
             "enter": this.state.enter
-        }).catch((error) => {
+        }).catch((error: Error): void => {
 
             this.props.onError(error);
 
-        }).finally(() => {
+        }).finally((): void => {
 
             this.setState({
                 "running": false
