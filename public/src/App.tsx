@@ -6,6 +6,8 @@
 
     // locals
     import getSDK from "./SDK";
+    import InputString from "./components/InputString";
+    import InputKey from "./components/InputKey";
 
 // types & interfaces
 
@@ -131,6 +133,17 @@ export default class App extends React.Component<iPropsNode, iState> {
 
     };
 
+    private readonly _handleError = (err: Error): void => {
+
+        this.setState({
+            "error": {
+                "code": "unknown",
+                "message": err.message
+            }
+        });
+
+    };
+
     // render
 
     public render (): React.JSX.Element {
@@ -173,7 +186,17 @@ export default class App extends React.Component<iPropsNode, iState> {
                     </ModalBody>
                 </Modal> }
 
-                <span>Hello World !</span>
+                <div className="row">
+
+                    <div className="col-12 col-md-6">
+                        <InputString onError={ this._handleError } />
+                    </div>
+
+                    <div className="col-12 col-md-6">
+                        <InputKey onError={ this._handleError } />
+                    </div>
+
+                </div>
 
             </div>;
 
