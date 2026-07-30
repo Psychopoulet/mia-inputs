@@ -81,7 +81,10 @@ export default class MediatorInputs extends Mediator<iEventsMinimal & {
 
     // <api>
 
-    public inputString (bodyParameters: operations["inputString"]["requestBody"]["content"]["application/json"]): Promise<void> {
+    public inputString (
+        urlParameters: operations["inputString"]["parameters"],
+        bodyParameters: operations["inputString"]["requestBody"]["content"]["application/json"]
+    ): Promise<void> {
 
         return new Promise((resolve: () => void, reject: (err: Error) => void): void => {
 
@@ -106,7 +109,10 @@ export default class MediatorInputs extends Mediator<iEventsMinimal & {
 
     }
 
-    public inputKey (bodyParameters: operations["inputKey"]["requestBody"]["content"]["application/json"]): Promise<void> {
+    public inputKey (
+        urlParameters: operations["inputKey"]["parameters"],
+        bodyParameters: operations["inputKey"]["requestBody"]["content"]["application/json"]
+    ): Promise<void> {
 
         return new Promise((resolve: () => void, reject: (err: Error) => void): void => {
 
