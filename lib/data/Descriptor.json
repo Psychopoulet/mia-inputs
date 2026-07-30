@@ -288,7 +288,7 @@
 						"type": "boolean"
 					}
 				},
-				"required": [ "type", "string" ]
+				"required": [ "string" ]
 			},
 			"InputKey": {
 				"type": "object",
@@ -337,7 +337,7 @@
 						"type": "boolean"
 					}
 				},
-				"required": [ "type", "key" ]
+				"required": [ "key" ]
 			},
 			"PushEventPluginInitialized": {
                 "$ref": "./DescriptorEvents.json#/components/schemas/PushEventPluginInitialized"
