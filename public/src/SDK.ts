@@ -239,6 +239,48 @@ export class SDK extends EventEmitter<{
 
     }
 
+    public inputString (cmd: components["schemas"]["InputString"]): Promise<operations["inputString"]["responses"]["201"]["content"]["application/json"]> {
+
+        const url: keyof paths = "/mia-inputs/api/input/string";
+        const method: HttpMethodsOf<typeof url> = "put";
+        const body: operations["inputString"]["requestBody"]["content"]["application/json"] = cmd;
+
+        return fetch(url, {
+            "method": method,
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + this._token
+            },
+            "body": JSON.stringify(body)
+        }).then((res: Response): Promise<operations["inputString"]["responses"]["201"]["content"]["application/json"]> => {
+
+            return this._parseResponse(res);
+
+        });
+
+    }
+
+    public inputKey (cmd: components["schemas"]["InputKey"]): Promise<operations["inputKey"]["responses"]["201"]["content"]["application/json"]> {
+
+        const url: keyof paths = "/mia-inputs/api/input/key";
+        const method: HttpMethodsOf<typeof url> = "put";
+        const body: operations["inputKey"]["requestBody"]["content"]["application/json"] = cmd;
+
+        return fetch(url, {
+            "method": method,
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + this._token
+            },
+            "body": JSON.stringify(body)
+        }).then((res: Response): Promise<operations["inputKey"]["responses"]["201"]["content"]["application/json"]> => {
+
+            return this._parseResponse(res);
+
+        });
+
+    }
+
 }
 
 let _sdk: SDK | null = null;
