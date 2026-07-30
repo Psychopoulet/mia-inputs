@@ -6,6 +6,7 @@
 
     // externals
     import { Mediator } from "node-pluginsmanager-plugin";
+    import robotjs from "@hurdlegroup/robotjs";
 
 // types & interfaces
 
@@ -79,5 +80,67 @@ export default class MediatorInputs extends Mediator<iEventsMinimal & {
     }
 
     // <api>
+
+    public inputString (bodyParameters: operations["inputString"]["requestBody"]["content"]["application/json"]): Promise<void> {
+
+        return new Promise((resolve: () => void, reject: (err: Error) => void): void => {
+
+            try {
+
+                robotjs.typeString(bodyParameters.string);
+
+                if ("boolean" === typeof bodyParameters.enter && bodyParameters.enter) {
+                    robotjs.keyTap("enter");
+                }
+
+                return resolve();
+
+            }
+            catch (e: unknown) {
+
+                return reject(e instanceof Error ? e : new Error(String(e)));
+
+            }
+
+        });
+
+    }
+
+    public inputKey (bodyParameters: operations["inputKey"]["requestBody"]["content"]["application/json"]): Promise<void> {
+
+        return new Promise((resolve: () => void, reject: (err: Error) => void): void => {
+
+            try {
+
+                const modifiers: string[] = [];
+
+                if ("boolean" === typeof bodyParameters.alt && bodyParameters.alt) {
+                    modifiers.push("alt");
+                }
+                if ("boolean" === typeof bodyParameters.ctrl && bodyParameters.ctrl) {
+                    modifiers.push("control");
+                }
+                if ("boolean" === typeof bodyParameters.shift && bodyParameters.shift) {
+                    modifiers.push("shift");
+                }
+                if ("boolean" === typeof bodyParameters.command && bodyParameters.command) {
+                    modifiers.push("command");
+                }
+
+                // https://www.piathome.com/homepage/docs/robotjs-key-syntax.html
+                robotjs.keyTap(bodyParameters.key, modifiers);
+
+                return resolve();
+
+            }
+            catch (e: unknown) {
+
+                return reject(e instanceof Error ? e : new Error(String(e)));
+
+            }
+
+        });
+
+    }
 
 }
