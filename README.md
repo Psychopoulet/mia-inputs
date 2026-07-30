@@ -1,6 +1,6 @@
 # mia-inputs
 
-This is a template for MIA plugin creation.
+Keyboard inputs simulator plugin for MIA.
 
 ## Badges
 

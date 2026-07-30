@@ -6,16 +6,16 @@
 // types & interfaces
 
     // locals
-    import type MediatorTemplate from "./Mediator";
+    import type MediatorInputs from "./Mediator";
     import type { components } from "./Descriptor";
 
 // module
 
-export default class ServerTemplate extends Server {
+export default class ServerInputs extends Server {
 
     public _initWorkSpace (): Promise<void> {
 
-        (this._Mediator as MediatorTemplate)
+        (this._Mediator as MediatorInputs)
 
             .on("initialized", this._onPluginInitialized)
             .on("released", this._onPluginReleased)
@@ -27,7 +27,7 @@ export default class ServerTemplate extends Server {
 
     public _releaseWorkSpace (): Promise<void> {
 
-        (this._Mediator as MediatorTemplate)
+        (this._Mediator as MediatorInputs)
 
             .off("initialized", this._onPluginInitialized)
             .off("released", this._onPluginReleased)

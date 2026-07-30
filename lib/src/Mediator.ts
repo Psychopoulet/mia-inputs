@@ -20,7 +20,7 @@
 
 // module
 
-export default class MediatorTemplate extends Mediator<iEventsMinimal & {
+export default class MediatorInputs extends Mediator<iEventsMinimal & {
     "initialized": [ ContainerPattern ];
     "released": [ ContainerPattern ];
     "error": [ components["schemas"]["PushEventPluginError"]["data"] ];

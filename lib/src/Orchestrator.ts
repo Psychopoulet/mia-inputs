@@ -13,7 +13,7 @@
 
 // module
 
-export default class OrchestratorTemplate extends Orchestrator {
+export default class OrchestratorInputs extends Orchestrator {
 
     public constructor (data: iOrchestratorOptions) {
 
