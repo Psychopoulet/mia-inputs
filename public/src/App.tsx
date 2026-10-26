@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+// - @typescript-eslint/no-unnecessary-condition is disabled to let the app check unknown statuses
+
 // deps
 
     // externals
