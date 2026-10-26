@@ -2,7 +2,7 @@
 	"openapi": "3.1.2",
 	"info": {
 		"title": "mia-inputs",
-		"version": "1.0.0",
+		"version": "1.0.1",
 		"description": "Keyboard inputs simulator plugin for MIA."
 	},
 	"paths": {
